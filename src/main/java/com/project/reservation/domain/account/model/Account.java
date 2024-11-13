@@ -1,17 +1,16 @@
 package com.project.reservation.domain.account.model;
 
-import com.project.reservation.common.model.Auditor;
+import com.project.reservation.common.model.BaseEntity;
+import com.project.reservation.domain.account.enums.Role;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Builder
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Account {
+public class Account extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +18,8 @@ public class Account {
     private Long id;
 
     private String loginId;
+
     private String password;
+
+    private Role role;
 }

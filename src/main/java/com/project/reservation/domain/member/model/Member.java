@@ -1,6 +1,6 @@
 package com.project.reservation.domain.member.model;
 
-import com.project.reservation.common.model.Auditor;
+import com.project.reservation.common.model.BaseEntity;
 import com.project.reservation.domain.account.model.Account;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,4 @@ public class Member {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;
-
-    private String deleteYn;
 }
